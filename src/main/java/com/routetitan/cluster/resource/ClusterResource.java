@@ -1,14 +1,16 @@
 package com.routetitan.cluster.resource;
 
-import com.routetitan.cluster.resource.model.request.Stop;
+import com.routetitan.cluster.resource.model.request.ClusterStopsRequest;
+import com.routetitan.cluster.resource.model.response.ClusterStopsResponse;
+import com.routetitan.cluster.resource.model.response.ClusteredStop;
 import com.routetitan.cluster.service.ClusterService;
 
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("/cluster")
@@ -22,11 +24,8 @@ public class ClusterResource {
     }
 
     @POST
-    public Response add(List<Stop> stops) {
-        if (stops == null || stops.size() == 0) {
-            return Response.status(Response.Status.BAD_REQUEST).build();
-        }
-
-        return Response.ok(clusterService.clusterStops(stops)).build();
+    public ClusterStopsResponse clusterStops(@Valid ClusterStopsRequest request) {
+        List<ClusteredStop> clusteredStops = clusterService.clusterStops(request.getStops());
+        return new ClusterStopsResponse(clusteredStops);
     }
 }
