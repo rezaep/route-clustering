@@ -13,6 +13,7 @@ dependencies {
     implementation 'io.quarkus:quarkus-resteasy'
     implementation 'io.quarkus:quarkus-resteasy-jackson'
     implementation 'io.quarkus:quarkus-arc'
+    implementation 'io.quarkus:quarkus-hibernate-validator'
     implementation 'com.github.haifengl:smile-core:2.6.0'
     implementation 'com.github.haifengl:smile-plot:2.6.0'
     testImplementation 'io.quarkus:quarkus-junit5'
