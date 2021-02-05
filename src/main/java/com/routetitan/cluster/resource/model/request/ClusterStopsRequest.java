@@ -9,6 +9,13 @@ public class ClusterStopsRequest {
     @NotEmpty
     private List<Stop> stops;
 
+    public ClusterStopsRequest() {
+    }
+
+    public ClusterStopsRequest(List<Stop> stops) {
+        this.stops = stops;
+    }
+
     public List<Stop> getStops() {
         return stops;
     }

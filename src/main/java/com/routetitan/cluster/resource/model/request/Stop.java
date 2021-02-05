@@ -7,6 +7,17 @@ public class Stop {
     private String lat;
     private String lng;
 
+    public Stop() {
+    }
+
+    public Stop(String id, String city, String zip, String lat, String lng) {
+        this.id = id;
+        this.city = city;
+        this.zip = zip;
+        this.lat = lat;
+        this.lng = lng;
+    }
+
     public String getId() {
         return id;
     }
